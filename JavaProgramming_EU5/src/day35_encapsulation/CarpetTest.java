@@ -1,6 +1,6 @@
 package day35_encapsulation;
 
-public class CarperTest {
+public class CarpetTest {
 
 	public static void main(String[] args) {
 		/*  1. Yontem

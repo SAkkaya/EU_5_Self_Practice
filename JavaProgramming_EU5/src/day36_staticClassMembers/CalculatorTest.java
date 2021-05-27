@@ -21,12 +21,26 @@ public class CalculatorTest {
 	
 		CalculatorTest C1= new CalculatorTest();
 		C1.m1(); //hello==>  object create edip cagirabilrisin
-	
+		
+		
+		CalculatorTest.m2(); //java
+		
+		m2();//java
+		
+		CalculatorTest C2= new CalculatorTest();
+		C2.m2();//java
 	
 	}
-	
+		//	public  void m1() {  //==static i kaldirirsak hata verir yukarda m1
 	public static void m1() {
 		System.out.println("hello");
 	}
+	
+	public static void m2() {
+		System.out.println("java");
+	}
 
+	
+	
+	
 }
