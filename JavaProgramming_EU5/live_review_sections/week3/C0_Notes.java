@@ -76,7 +76,7 @@ Branching statements:
 	continue: skip iteration, jumps to the enxt iteration. 
 				THERE MUST BE A LOOP
 	return: exits the method. can also be used to return a value
-Methods: Function. grouping aseries of codes
+Methods: Function. grouping a series of codes
 	int n1 =10            isEven(n1);   
 	if(n1%2==0){
 		Even

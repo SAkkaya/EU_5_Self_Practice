@@ -1,4 +1,3 @@
-/.DS_Store
 /assessment3/
 /assessment4/
 /assessment8/
@@ -37,6 +36,7 @@
 /day34_Constructors/
 /day35_encapsulation/
 /day36_staticClassMembers/
+/day37_inheritance/
 /day3_variables_dataTypes/
 /day4_aritmetic_operators/
 /day5_unary_assignment_relational_operators/
@@ -46,6 +46,8 @@
 /day9_controlFlowStatements3/
 /utilities/
 /week1/
+/week10/
+/week10_review/
 /week2/
 /week3/
 /week4/
@@ -56,4 +58,4 @@
 /week8review/
 /week9/
 /week9review/
-/day37_inheritance/
+/day38_inheritance_part2/
