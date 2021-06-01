@@ -20,6 +20,11 @@ public class Animal {
 	public void eat() {
 		System.out.println("Animal.eat() is called");
 	}
+	
+	
+	public void move(int speed) {
+		System.out.println("Animal.move() is called. Animal is moving at " + speed + " speed");
+	}
 
 	public String getName() {
 		return name;

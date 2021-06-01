@@ -3,16 +3,19 @@ package week10_review;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import week10.Developer;
-import week10.Tester;
+import week10_review.*;
+
 
 public class ScrumTeam { //Scrum Team ve Developer ve Tester arasinda 
 						//IS aRelation Degil HAs A Relation var o yuzden EXTENDS yapmadik!!!!
 	
 	public String PO, BA, SM;
+	
 	ArrayList<Developer> developersList;
 	ArrayList<Tester> testersList;
 	
+//	public Developer developer;
+//	public Tester tester;
 	
 	
 public ScrumTeam(String pO, String sM, ArrayList<Developer> developersList) {
@@ -44,17 +47,17 @@ public ScrumTeam(String pO, String bA, String sM, ArrayList<Tester> testersList,
 	}
 
 
-	
-
 	public ScrumTeam(String pO, String bA, String sM, Developer developer) {
+		
+		this.developersList = new ArrayList<Developer>();
 		PO = pO;
 		BA = bA;
 		SM = sM;
-		this.developersList.add(developer); // develoepr list icine 1 tane developer ekledik
+		this.developersList.add(developer);
 }
 
-
 	public void addTester(Tester tester)	{
+		this.testersList = new ArrayList<Tester>();
 		this.testersList.add(tester);  // niye return yapmadik ya da syos tazmadik void
 	}
 	

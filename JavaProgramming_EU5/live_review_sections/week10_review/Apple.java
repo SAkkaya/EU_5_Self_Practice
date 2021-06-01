@@ -27,14 +27,19 @@ public class Apple {
         
         
         
-        System.out.println(tester1);
-        System.out.println(developer1);
+//        System.out.println(tester1);
+//        System.out.println(developer1);
         
-        tester2.creatingTicket();
-        developer1.coding();
-        tester3.eat("banana");
+//        tester2.creatingTicket();
+//        developer1.coding();
+//        tester3.eat("banana");
         
         ScrumTeam scrumTeam= new ScrumTeam("Ali", "Veli", "Mehmet", developer3);
+        System.out.println(scrumTeam);
+        scrumTeam.addDeveloper(developer4);
+        System.out.println(scrumTeam);
+        scrumTeam.addTester(tester1);
+        System.out.println(scrumTeam);
         
 	}
 
