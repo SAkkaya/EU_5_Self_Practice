@@ -8,7 +8,7 @@ public class ArrayListPractice1 {
 	public static void main(String[] args) {
 		
 		ArrayList<Integer> list = new ArrayList<>();
-		list.addAll( Arrays.asList(1,1,1,2,2,2,3,3,4,4,5,5,1,1,1,2,2,3,2,1,1,1) );
+		list.addAll( Arrays.asList(1,1,1,2,2,2,3,3,4,4,5,5,1,1,1,2,2,3,2,1,1,1) );  //Arrays.asList==> Arrays utility den list e yani collection a dionusturuyor
 		
 		/*
 		for(int i=0; i < list.size(); i++) {
@@ -29,11 +29,11 @@ public class ArrayListPractice1 {
 			"Japan", "Korea", "Russia"
 		};		
 		
-		ArrayList<String> countries = new ArrayList<>( Arrays.asList(countryNames) );
+		ArrayList<String> countries = new ArrayList<>( Arrays.asList(countryNames) );//( countryNames Array i i arrayslist e cevirdim )
 		
 		System.out.println(countries);
 		
-		countries.removeIf( p -> p.length() > 10 ); // if the length of the object is greater than 10, then reomve it from arraylist
+		countries.removeIf( p -> p.length() > 10 ); // if the length of the object is greater than 10, then remove it from arraylist
 		
 		System.out.println(countries);
 		
@@ -47,7 +47,6 @@ public class ArrayListPractice1 {
 		jobList.removeIf( each ->  !(each.equals("SDET") || each.equals("QA")) );
 		
 		System.out.println(jobList);
-		
 		
 		
 		
