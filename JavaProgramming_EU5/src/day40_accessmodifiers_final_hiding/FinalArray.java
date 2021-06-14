@@ -19,7 +19,14 @@ public class FinalArray {
 		finalNums [0]= 120; // no proble
 		
 		//finalNums=new int[] {1,2,3};// if you put final you can not change referance 
-
+		
+		final int A= 5;
+		final int B= 4;
+		
+		final int[] XXX = {A,B};
+		
+		XXX[0]=10;
+		System.out.println(XXX[0]); //10
 	}
 
 }
