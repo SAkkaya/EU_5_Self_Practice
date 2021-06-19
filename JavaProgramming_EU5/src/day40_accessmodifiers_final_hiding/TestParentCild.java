@@ -8,7 +8,7 @@ public class TestParentCild {
 		Child s = new Child();
 		System.out.println("Value of x before increment " + s.x); //200
 		
-		s.increment();
+		s.increment(); // burda parent a gidiyor ordaki x=100 u 1 artirip 101 yapiyor
 		
 		System.out.println("Value of x after increment " + s.x); //200
 		

@@ -8,7 +8,7 @@ public class Kangaroo extends Marsupial{
 	}
 	*/
 	
-	public static boolean isBiped() { // parent should be static as well if child is static
+	public static boolean isBiped() { // parent should be static as well, if child is static
 		return true;      
 	}
 	
