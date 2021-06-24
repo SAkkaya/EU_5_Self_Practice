@@ -27,6 +27,11 @@ public class FinalKeyword  {
 		this.b = b;
 	}
 	
+	//eger yukardaki constructor ile b ye deger atamasaydik, asagidaki gibi init bloc ile atayabilirdik
+	
+//	{
+//		b=100;
+//	}
 	
 	static {
 		c= 200;
