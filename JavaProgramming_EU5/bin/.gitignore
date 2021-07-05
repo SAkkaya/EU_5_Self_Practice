@@ -1,3 +1,4 @@
+/.DS_Store
 /assessment3/
 /assessment4/
 /assessment8/
@@ -40,6 +41,12 @@
 /day38_inheritance_part2/
 /day39_inheritance_review_access_modifiers/
 /day3_variables_dataTypes/
+/day40_accessmodifiers_final_hiding/
+/day40_accessmodifiers_final_hiding_2/
+/day41_abstraction/
+/day42_Interface/
+/day43_polymorphism/
+/day44_oopreview/
 /day4_aritmetic_operators/
 /day5_unary_assignment_relational_operators/
 /day6_logicaloperators/
@@ -50,6 +57,9 @@
 /week1/
 /week10/
 /week10_review/
+/week11/
+/week12/
+/week13/
 /week2/
 /week3/
 /week4/
@@ -60,10 +70,3 @@
 /week8review/
 /week9/
 /week9review/
-/week11/
-/day40_accessmodifiers_final_hiding/
-/day40_accessmodifiers_final_hiding_2/
-/day41_abstraction/
-/week12/
-/day42_Interface/
-/day43_polymorphism/

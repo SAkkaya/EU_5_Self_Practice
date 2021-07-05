@@ -1,5 +1,8 @@
 package day43_polymorphism;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShapesArray {
 
 	public static void main(String[] args) {
@@ -33,6 +36,19 @@ public class ShapesArray {
 //		for(int i = 0; i< shapes.length; i++) {
 //			shapes[i].draw();
 //		}
+		
+		
+		//ArrayList<WrapperClass>  list 
+		
+		//ArrayList<Shape> shapeList = new ArrayList<>(); // it is not polimorphic way sol tarfa ve sag taraf array list same Class 
+		// bunu poly yapmak icin sol tarafi ArrayList in Interface i olan List yaparsak poly olur
+		
+		List<Shape> shapeList = new ArrayList<>(); //polimorphic oldu simdi
+		
+		shapeList.add(new Triangle());
+		shapeList.add(new Circle());
+		
+		
 
 	}
 
