@@ -22,12 +22,12 @@ public interface VoiceCallable {
 	
 	//static method
 	
-	
+	//static method                  =>( you cannot override it , only by another static method, hidin yapabilirsin)
 	public static void decline() {        // static methodda implementation koyman gerekir sadece abstarct classlarda implementation koymazsin 
 		System.out.println("Mike declined voice call..");
 	}
 	
-	//default method
+	//default (not access modifiers only a keyword here)      ==> you cannot override it
 	public default void accept() { // burda access modifiers ==>
 								// default access modifiers degil!!!!!!!
 		

@@ -1,0 +1,271 @@
+Exception handling Review 
+
+Why we need it?
+	- Friendly message to user. Give user a unique exception identifier and information
+	- Enough information for Support team/ Developer team to debug the problem 
+	( Exception and Error like an object in java, so we can use a lot of exception methods  by using object name ==> e.methods();)
+	
+	
+
+try {
+	// exception        ==> burdaki kod caliisirsa catch bloc calismaz, burda hata olursa kodda catch blok calisir yani ikisinden biri caliscak
+}catch(Exception e) {
+	// handle exception          Try lock da hata olursa burasi calisir ve hatayi burda goruruz, catch block disinda kod normal calismaya devam eder
+}
+
+Multiple catch blocks 
+
+	try {
+
+	}catch(ArithmeticException e) {       // if we want to be more specific to that exception so we will use multiple exception
+
+	}catch(NullPointerException e) {
+
+	}catch(Exception e)
+
+Rule: Handle more specialized exception class before general exception classes 
+
+What is the need for finally block?     //
+
+class Connection  {
+	
+	void open() {
+		System.out.println("Connection opened");
+	}
+	void close(){
+		System.out.println("Connection closed");
+	}
+}
+
+public class Test {
+	
+	public static void main(String [] args) {
+
+		method1();
+		System.out.println("Line after exception - Main");
+	}
+
+	public static void method1() {
+		method2();
+		System.out.println("Line after Exception - method1");
+	}
+
+	public static void method2() {
+
+		try {
+			Connection connection = new Connection();
+			connection.open();
+
+			String str = null;       ==> nullPointerException
+			str.toString();
+
+			connection.close();
+		}catch(Exception e) {
+			System.out.println("Line after Exception - method2");
+		}
+	}
+}
+
+
+Output:
+
+Connection opened
+Exception handled - Method2
+Line after Exception - Method1
+Line after - Main 
+
+Finally block is always executed (even when an exception is thrown). So if we want some code to be always executed we can add it to finally block 
+
+In what scenarios i code in finally not executed? 	
+	
+	- If exception is thrown in finally
+	- If JVM crashes 
+
+Finally will be executed even if there is a return statement in try catch block 
+
+
+	public static void method2() {
+
+		try {
+			Connection connection = new Connection();
+			connection.open();
+
+			String str = null;
+			str.toString();
+
+		}catch(Exception e) {
+			System.out.println("Line after Exception - method2");
+		}finally {
+			connection.close();
+		}
+	}
+
+Is try without catch allowed?
+	
+	- Yes it is
+
+		try {
+			Connection connection = new Connection();
+			connection.open();
+
+			String str = null;            // but exectution of codes willdtop there becaue thare is no catch block
+			str.toString();
+
+		}finally {        
+ 
+			connection.close();
+		}
+
+Is try without catch and finally allowed? 	
+
+	- No it is not
+
+		try {
+			Connection connection = new Connection();
+			connection.open();
+
+			String str = null;
+			str.toString();
+
+		} //  compile error
+
+Explain the hierarchy of exception handling classes? 
+
+	Throwable is the highest level of Error handling classes
+
+	class Error extends Throwable{}
+	class Exception extends Throwable {}
+	class RuntimeException extends Exception {}
+	//Programmer defined classes
+    class CheckedException1 extends Exception{}
+    class CheckedException2 extends CheckedException1{}
+    class UncheckedException extends RuntimeException{}
+    class UncheckedException2 extends UncheckedException{}
+
+What is the difference between Error and Exception?
+    - Error: is used in situations where there is nothing programmer can do about it
+        Ex: StackOverFlowError,OutOfMemomaryerror
+    - Exception : is used when a programmer can handle the exception
+
+What is the difference between CheckedExceptions and UncheckedException?
+	
+	- UncheckedException : Error and RuntimeException  classes that extends them are called UncheckedException.
+	These are the exceptions that you should not handle in your program. Code will compile even we handle or not
+	
+	- CheckedExceptions : Other exceptions classes are checked exceptions. These are the exceptions you should handle in your program.
+	    (2 ways to handle those checked exceptions)
+	    - Try-catch
+	    - Throws declaration
+	 
+		 HOW WE CAN DECIDE ON WHICH EXCEPTION TYPE TO CREATE?   
+	    -if there is expected exception , you believe that you will recover the exception then you use ==>checked exception)
+	    (developer olarak bir hata bekliyorsanız ve bunun çözümünü biliyorsanız o zaman direk compile etmeden uyarı verebilirsiniz)
+	    
+	    - if you believe you can not recover this exception and reasonable  expected exception then  you're gonna put ==>unchecked exception)
+	    (hatayı çözemiyorsanız o zaman çalıştırmasına izin verip hatayı görmesini sağlarsınız)
+
+Throw clauses?
+    - It can be used to throw an exception manually. We can throw either checked or UncheckedException
+    throw new ExceptionType(MessageString);
+This will not compile. To able compile you need to handle it. 1)throws declaration 2)try-catch
+
+class AmountAdder{
+    static Amount addAmounts(Amount amount1,Amount amount2){
+        if(!amount1.currency.equals(amount2.currency)){
+            throw new Exception("Currencies do not match");   //UncheckedException : Error and RuntimeException  classes ==> others liek EXceptions class checked exception
+        }
+        return new Amount(amount1.currency,amount1.amount+amount2.amount);
+    }
+}
+
+throws clause?
+    - Throws clause informs the compiler that a method throws one or more exceptions.
+class AmountAdder{
+    static Amount addAmounts(Amount amount1,Amount amount2) throws Exception {
+        if(!amount1.currency.equals(amount2.currency)){
+            throw new Exception("Currencies do not match");
+        }
+        return new Amount(amount1.currency,amount1.amount+amount2.amount);
+    }
+}
+
+Rule : When you declare a checked exception, whoever calls this method is responsible to handle it or redeclare it
+
+Option-1
+    public static void main(String[] args) throws Exception{
+        AmountAdder.addAmounts(new Amount("usd",50),new Amount("euro",5));
+    }
+
+Option-2
+    public static void main(String[] args){
+        try{
+            AmountAdder.addAmounts(new Amount("usd",50),new Amount("euro",5));
+        }catch(Exception e){
+            System.out.println("Exception handled in main");
+        }
+        
+    }
+​
+==================================================
+
+
+try{
+	
+	A 
+
+	B
+
+	C
+}catch(Exception e){
+
+	D
+}
+
+J
+
+
+1 - There is no any problem/exception : A B C J
+
+2- A triggered exception/error: D J
+
+3- B triggered exception/error: A D J
+
+4- C triggered exception/error: A B D J
+
+==============
+
+A
+
+try{
+
+	B
+
+	C
+
+}catch(Exception e){
+
+	D 
+
+	E
+
+}finally{
+
+	F
+}
+
+K
+
+1 - No error: A B C F K
+
+2- A has error : nothing 
+
+3- C has a problem: A B D E F K
+
+4- C and D has error: A B F and execution stops, show error    //K yi run etmez, cunku return gibe main method ici calismaz, sadece finally Blok calisir.Catch(Exception bloc) calismasi lazy
+	
+	D 
+
+	E
+
+	
+	
